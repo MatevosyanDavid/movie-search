@@ -14,7 +14,6 @@ const MovieInfo = props => (
           return (
             <div
               key={videoKey}
-              className="videos-item"
             >
               <iframe
                 src={url}
@@ -24,6 +23,7 @@ const MovieInfo = props => (
                 allowFullScreen
                 title={videoKey}
                 allow="accelerometer"
+                className="videos-item"
               />
             </div>
           )

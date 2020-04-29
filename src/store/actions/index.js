@@ -1,7 +1,7 @@
 import { transformData, getAllData } from 'utils';
 
 export const fetchMovie = (services) => (dispatch) =>
-  Promise.all(services.getAllData())
+  Promise.all(services.getAllData(2))
     .then(response => {
       return response.reduce((acc, { data: { results }}) => {
         acc.push(...results.map(item => transformData(item)))

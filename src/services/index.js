@@ -17,7 +17,7 @@ class Services {
     this.getItemBySearch = getItemBySearch;
   }
 
-  getAllData = (type = 'movie') => Array(1).fill(0).map((_, i) => (
+  getAllData = (pageCount, type = 'movie') => Array(pageCount).fill(0).map((_, i) => (
     axios.get(`${this.endPoint}${this.getAllMovies(i + 1, type)}`)
   ));
   
