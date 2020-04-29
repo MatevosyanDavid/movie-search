@@ -1,0 +1,9 @@
+.videos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.videos-item {
+  margin: 30px 0;
+}
