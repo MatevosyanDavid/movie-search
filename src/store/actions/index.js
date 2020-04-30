@@ -1,5 +1,5 @@
 import Fetch from 'utils/fetch';
-import { getMovies, getMoviesVideo } from 'constants/api';
+import { getMovies } from 'constants/api';
 import { transformData, getAllData } from 'utils';
 
 const getData = async ({ state }) => {

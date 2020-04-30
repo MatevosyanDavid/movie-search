@@ -20,7 +20,9 @@ function Body() {
     }
   } = useStore();
 
-  useMount(getData);
+  useMount(() => {
+    getData();
+  });
   
   return (
     <>
