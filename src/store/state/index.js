@@ -1,8 +1,8 @@
 const initialState = {
-  data: null,
+  data: [],
   logout: null,
-  favorites: null,
-  searchResult: null,
+  favorites: [],
+  searchResult: [],
 };
 
 export default initialState;

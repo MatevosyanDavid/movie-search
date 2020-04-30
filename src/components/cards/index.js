@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-import { useDispatch } from 'react-redux';
 import LazyImage from 'lazy-image-reactjs';
 import { BsHeart, BsHeartFill } from 'react-icons/bs';
 import { useHistory, useLocation } from 'react-router-dom';
@@ -23,7 +22,6 @@ function Card ({
   releaseDate,
   isMovieInfo,
 }) {
-  const dispatch = useDispatch();
   const history = useHistory();
   const { pathname } = useLocation();
 
@@ -52,14 +50,16 @@ function Card ({
                 fill="red"
                 className="favorite"
                 onClick={() => {
-                  dispatch(addFavorites({ id, isFavorites: false }));
+                  //remove dispatch here
+                  addFavorites({ id, isFavorites: false });
                 }}
               />
               : <BsHeart
                 fill="white"
                 className="favorite"
                 onClick={() => {
-                  dispatch(addFavorites({ id, isFavorites: true }));
+                  //remove dispatch here
+                  addFavorites({ id, isFavorites: true });
                 }}
               />
             : null

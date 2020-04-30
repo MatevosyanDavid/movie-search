@@ -1,8 +1,27 @@
-import React from 'react';
-
+import React, { useEffect } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
+import { useStore } from 'store';
+import { useMount } from 'utils/hooks';
+
+import Main from 'pages/main';
+import Favorites from 'pages/favorites';
+import MovieInfo from 'components/movieInfo';
+
 function Body() {
+  const {
+    state: {
+      data,
+      favorites,
+      searchResult,
+    },
+    actions: {
+      getData
+    }
+  } = useStore();
+
+  useMount(getData);
+  
   return (
     <>
       <div className="container-fluid">
@@ -11,13 +30,13 @@ function Body() {
             <Main data={data} />
           </Route>
           <Route exact path="/search">
-            <Main data={searchMovies} />
+            <Main data={searchResult} />
           </Route>
           <Route
             exact
             path="/search/:id"
             render={({ match: { params: { id } } }) => {
-              const infoData = searchMovies.find(item => item.id === +id);
+              const infoData = searchResult.find(item => item.id === +id);
               return infoData && <MovieInfo {...infoData} />
             }}
           />
@@ -44,3 +63,5 @@ function Body() {
     </>
   )
 }
+
+export default Body;

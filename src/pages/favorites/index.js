@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 import { loadState } from "utils";
 import Card from 'components/cards';

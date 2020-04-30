@@ -4,7 +4,7 @@ import { transformData, getAllData } from 'utils';
 
 const getData = async ({ state }) => {
   const { results } = await Fetch.get(getMovies(1));
-  state.data = results;
+  state.data = results.map(item => transformData(item));
 };
 
 const logout = ({ state }) => {
