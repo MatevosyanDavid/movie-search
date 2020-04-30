@@ -1,5 +1,15 @@
 import { transformData, getAllData } from 'utils';
 
+const fakeAction = ({ state }) => {
+  state.data = [];
+  state.favorites = [];
+  state.searchResult = [];
+};
+
+export default {
+  fakeAction,
+};
+
 export const fetchMovie = (services) => (dispatch) =>
   Promise.all(services.getAllData(2))
     .then(response => {
