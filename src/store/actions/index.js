@@ -1,8 +1,15 @@
+import Fetch from 'utils/fetch';
+import { getMovies } from 'constants/api';
 import { transformData, getAllData } from 'utils';
+
+const getData = async ({ state }) => {
+  const { results } = await Fetch.get(getMovies(1));
+  state.data = results;
+};
 
 const logout = ({ state }) => {
   state.logout = false;
-}
+};
 
 const fakeAction = ({ state }) => {
   state.data = [];
@@ -12,6 +19,7 @@ const fakeAction = ({ state }) => {
 
 export default {
   logout,
+  getData,
   fakeAction,
 };
 
