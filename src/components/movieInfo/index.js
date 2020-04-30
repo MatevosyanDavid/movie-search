@@ -10,7 +10,7 @@ const MovieInfo = props => (
     <div className="videos">
       { 
         props.videos.map(({ key: videoKey }) => {
-          const url = `${process.env.REACT_APP_ENDPOINT_YOUTUBE}${videoKey}`;
+          const url = `${process.env.REACT_APP_BASE_URL_VIDEO}${videoKey}`;
           return (
             <div
               key={videoKey}

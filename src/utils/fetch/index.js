@@ -1,7 +1,8 @@
 import { appKey } from 'configs';
-
 import RequestStore from './requestStore';
 import errorHandler from './errorHandler';
+import { getMovies, getMoviesVideo } from 'constants/api';
+
 
 const makeUnique = (url, method, data) => `${url}-${method}-${data}`;
 
@@ -10,15 +11,19 @@ class Fetch {
     return Fetch.request(url, 'GET');
   }
 
-  static async request(url, method, data, signal) {
+  static async getVideos(data) {
+    const promises = data.map(({ id }) => Fetch.request(getMoviesVideo(id)));
+    await Promise.all(promises)
+      .then(videos => {
+        videos.forEach(({ results }, i) => {
+          data[i].videos = results;
+        })
+      });
+    return data;
+  }
 
-    const headers = {
-      'Content-Type': 'application/json',
-    };
-
-    const body = (method === 'POST' || method === 'PUT') ? JSON.stringify(data) : null;
-
-    const response = await Fetch.cachableRequest(url, method, headers, body, signal);
+  static async request(url, method) {
+    const response = await Fetch.cachableRequest(url, method);
 
     const result = await response.clone().json();
 
