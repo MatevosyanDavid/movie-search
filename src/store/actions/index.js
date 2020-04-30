@@ -1,5 +1,9 @@
 import { transformData, getAllData } from 'utils';
 
+const logout = ({ state }) => {
+  state.logout = false;
+}
+
 const fakeAction = ({ state }) => {
   state.data = [];
   state.favorites = [];
@@ -7,6 +11,7 @@ const fakeAction = ({ state }) => {
 };
 
 export default {
+  logout,
   fakeAction,
 };
 

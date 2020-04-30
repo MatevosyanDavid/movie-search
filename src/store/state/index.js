@@ -1,5 +1,6 @@
 const initialState = {
   data: null,
+  logout: null,
   favorites: null,
   searchResult: null,
 };

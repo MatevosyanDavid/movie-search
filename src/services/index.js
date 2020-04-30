@@ -1,6 +1,16 @@
 import axios from 'axios';
 
-import config from 'config';
+const config = {
+  isLoggedIn: true,
+  segment: process.env.REACT_APP_SEGMENT_KEY,
+  endPoint: `${process.env.REACT_APP_BASE_URL}`,
+  authenticated: !!window.sessionStorage.getItem('authenticated'),
+  getItemById: (id, type) => `/${type}/${id}?api_key=${process.env.REACT_APP_SEGMENT_KEY}`,
+  getItemBySearch: (name, type) =>
+    `/search/${type}?api_key=${process.env.REACT_APP_SEGMENT_KEY}&query=${name}`,
+  getAllMovies: (page, type) =>
+    `/discover/${type}?api_key=${process.env.REACT_APP_SEGMENT_KEY}${process.env.REACT_APP_CERTIFICATE}${page}`,
+}
 
 class Services {
   constructor({
