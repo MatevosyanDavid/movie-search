@@ -17,14 +17,14 @@ function Body() {
       searchResult,
     },
     actions: {
-      getData
+      getData,
     }
   } = useStore();
 
   useMount(() => {
-    getData();
+    getData(1);
   });
-  
+
   return (
     <>
       <div className="container-fluid">

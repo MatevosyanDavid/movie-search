@@ -10,7 +10,7 @@ class Fetch {
     return Fetch.request(url, 'GET');
   }
 
-  static async getVideos(data) {
+  static async getMergeData(data) {
     const promises = data.map(({ id }) => Fetch.request(getMoviesVideo(id), 'GET'));
     await Promise.all(promises)
       .then(videos => {
