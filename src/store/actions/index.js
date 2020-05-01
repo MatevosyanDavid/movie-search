@@ -1,30 +1,20 @@
 import Fetch from 'utils/fetch';
 import { getMovies } from 'constants/api';
 import {
-  loadState,
   getItemByKey,
   transformData,
   getIndexByKey,
   saveFavorites,
+  getPersistFavoritesData,
 } from 'utils';
-
-const getPersistFavoritesData = data => {
-  const persistKeys = loadState('favorites');
-  return data.map(item => {
-    if (persistKeys && persistKeys.includes(item.id)) {
-      item.isFavorites = true;
-    }
-    return item;
-  })
-}
 
 const getData = async ({ state }) => {
   const { results } = await Fetch.get(getMovies(1));
   const data = results.map(item => transformData(item));
   const fetchData = await Fetch.getVideos(data);
+
   state.data = getPersistFavoritesData(fetchData);
-  const x = getPersistFavoritesData(state.data);
-  console.log(x)
+  state.favorites = state.data.filter(({ isFavorites }) => isFavorites === true);
 };
 
 const setFavorites = ({ state }, id) => {
@@ -58,15 +48,3 @@ export default {
   setFavorites,
   removeFavorites,
 };
-
-export const fetchMovie = (services) => (dispatch) =>
-  Promise.all(services.getAllData(2))
-    .then(response => {
-      return response.reduce((acc, { data: { results }}) => {
-        acc.push(...results.map(item => transformData(item)))
-        return acc;
-      }, [])
-      .sort((a, b) => b.popularity - a.popularity);
-    })
-    // .then(data => getAllData(data, dispatch, moviesLoaded))
-    // .catch(err => dispatch(moviesError(err)));

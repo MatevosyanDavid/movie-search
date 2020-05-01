@@ -23,4 +23,5 @@ export {
   getItemByKey,
   getIndexByKey,
   saveFavorites,
+  getPersistFavoritesData,
 }

@@ -7,7 +7,6 @@ import { useHistory, useLocation } from 'react-router-dom';
 import { getTitle } from 'utils';
 import { useStore } from 'store';
 import img from 'assets/code.jpg';
-import { addFavorites } from 'store/actions';
 
 import './index.css';
 
@@ -26,7 +25,7 @@ function Card ({
   const history = useHistory();
   const { pathname } = useLocation();
 
-  const { state, actions: { setFavorites, removeFavorites } } = useStore();
+  const { actions: { setFavorites, removeFavorites } } = useStore();
 
   return (
     <div 
@@ -52,20 +51,12 @@ function Card ({
               ? <BsHeartFill
                 fill="red"
                 className="favorite"
-                onClick={() => {
-                  removeFavorites(id)
-                  //remove dispatch here
-                  // addFavorites({ id, isFavorites: false });
-                }}
+                onClick={() => removeFavorites(id)}
               />
               : <BsHeart
                 fill="white"
                 className="favorite"
-                onClick={() => {
-                  setFavorites(id)
-                  //remove dispatch here
-                  // addFavorites({ id, isFavorites: true });
-                }}
+                onClick={() => setFavorites(id)}
               />
             : null
         }

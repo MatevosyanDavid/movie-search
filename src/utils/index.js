@@ -3,7 +3,13 @@ import getAllData from './getAllData.js';
 import withSuspense from './withSuspense';
 import transformData from './transformData';
 import { loadState, saveState } from './persist';
-import { getTitle, getIndexByKey, getItemByKey, saveFavorites } from './helpers';
+import {
+  getTitle,
+  getItemByKey,
+  getIndexByKey,
+  saveFavorites,
+  getPersistFavoritesData,
+} from './helpers';
 
 export {
   noop,
@@ -16,4 +22,5 @@ export {
   transformData,
   getIndexByKey,
   saveFavorites,
+  getPersistFavoritesData,
 }
