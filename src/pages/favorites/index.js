@@ -1,14 +1,14 @@
 import React from 'react';
 
-import { loadState } from "utils";
+import { useStore } from 'store';
 import Card from 'components/cards';
 
 function Favorites() {
-  const data = loadState('favorites');
+  const { state: { favorites } } = useStore();
   return (
     <main className="favorites-page">
       {
-        data && data.map(item => (
+        favorites.map(item => (
           <Card
             key={item.id}
             {...item}

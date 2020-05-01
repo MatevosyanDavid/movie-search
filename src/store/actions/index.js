@@ -1,10 +1,12 @@
 import Fetch from 'utils/fetch';
 import { getMovies } from 'constants/api';
 import {
+  loadState,
   getAllData,
   getItemByKey,
   transformData,
   getIndexByKey,
+  persistFavorites,
 } from 'utils';
 
 const getData = async ({ state }) => {
@@ -20,6 +22,7 @@ const setFavorites = ({ state }, id) => {
   const newFavorite = getItemByKey(state.data, 'id', id);
   newFavorite.isFavorites = true;
   state.favorites = [...state.favorites, newFavorite];
+  persistFavorites(state.favorites)
 }
 
 const removeFavorites = ({ state }, id) => {
@@ -30,6 +33,7 @@ const removeFavorites = ({ state }, id) => {
   newFavorite.splice(favoriteIndex, 1);
   state.data[dataIndex].isFavorites = false;
   state.favorites = newFavorite;
+  persistFavorites(state.favorites)
 }
 
 const logout = ({ state }) => {
@@ -54,23 +58,3 @@ export const fetchMovie = (services) => (dispatch) =>
     })
     .then(data => getAllData(data, dispatch, moviesLoaded))
     .catch(err => dispatch(moviesError(err)));
-
-export const moviesLoaded = payload => ({
-  type: 'MOVIE_LOADED',
-  payload,
-});
-
-export const moviesError = payload => ({
-  type: 'MOVIE_ERROR',
-  payload,
-});
-
-export const addFavorites = payload => ({
-  type: 'ADD_FAVORITES',
-  payload,
-});
-
-export const searchMovies = payload => ({
-  type: 'SEARCH_MOVIES',
-  payload: payload.data,
-});
