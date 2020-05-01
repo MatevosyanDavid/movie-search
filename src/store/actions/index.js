@@ -25,7 +25,7 @@ const setFavorites = ({ state }, id) => {
   const newFavorite = getItemByKey(state.data, 'id', id);
   newFavorite.isFavorites = true;
   state.favorites = [...state.favorites, newFavorite];
-  saveFavorites(state.favorites)
+  saveFavorites(state.favorites);
 }
 
 const removeFavorites = ({ state }, id) => {
@@ -36,7 +36,7 @@ const removeFavorites = ({ state }, id) => {
   newFavorite.splice(favoriteIndex, 1);
   state.data[dataIndex].isFavorites = false;
   state.favorites = newFavorite;
-  saveFavorites(state.favorites)
+  saveFavorites(state.favorites);
 }
 
 const getSearchMovies = async ({ state }, name) => {
@@ -44,7 +44,7 @@ const getSearchMovies = async ({ state }, name) => {
   const data = results.map(item => transformData(item));
   const mergeData = await Fetch.getMergeData(data);
   
-  state.searchResult = mergeData
+  state.searchResult = mergeData;
 }
 
 const logout = ({ state }) => {

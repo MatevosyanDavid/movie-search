@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { useStore } from 'store';
+import { loadState } from 'utils';
 import Card from 'components/cards';
 
 function Favorites() {
-  const { state: { favorites } } = useStore();
+  const favorites = loadState('favorites')
   return (
     <main className="favorites-page">
       {
