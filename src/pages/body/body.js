@@ -8,32 +8,48 @@ import Main from './main';
 import About from './about';
 import Favorites from './favorites';
 import MovieInfo from 'components/movieInfo';
+import { loadState } from 'utils';
+
 
 function Body() {
+  const loadFormValue = loadState('formValue');
   const {
     state: {
       data,
       favorites,
+      totalPages,
       searchResult,
+      searchTotalPages,
     },
     actions: {
-      getData
+      getData,
+      getSearchMovies,
     }
   } = useStore();
 
   useMount(() => {
     getData(1);
   });
-  
+
   return (
     <>
       <div className="container-fluid">
         <Switch>
           <Route exact path="/movies">
-            <Main data={data} />
+            <Main 
+              data={data}
+              totalPages={totalPages}
+              getRequest={selected => getData(selected + 1)}
+            />
           </Route>
           <Route exact path="/search">
-            <Main data={searchResult} />
+            <Main
+              data={searchResult}
+              totalPages={searchTotalPages}
+              getRequest={
+                selected => getSearchMovies({ value: loadFormValue, id: selected + 1})
+              }
+            />
           </Route>
           <Route exact path="/about">
             <About />

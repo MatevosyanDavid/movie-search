@@ -4,3 +4,9 @@ main {
   margin-top: 60px;
   justify-content: space-around;
 }
+
+.main-blok {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

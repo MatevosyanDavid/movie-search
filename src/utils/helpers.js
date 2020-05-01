@@ -9,7 +9,6 @@ const getPersistFavoritesData = data => {
   const persistData = loadState('favorites');
   persistData && persistData.forEach(({ id }) => {
     const idx = getIndexByKey(data, 'id', id);
-    console.log(idx, '>>>>>>');
     if (idx !== -1) {
       data[idx].isFavorites = true
     }

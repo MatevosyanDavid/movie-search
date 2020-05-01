@@ -8,7 +8,7 @@ function Favorites() {
   return (
     <main className="favorites-page">
       {
-        favorites.map(item => (
+        favorites && favorites.map(item => (
           <Card
             key={item.id}
             {...item}
