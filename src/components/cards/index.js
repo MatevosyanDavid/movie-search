@@ -5,6 +5,7 @@ import { BsHeart, BsHeartFill } from 'react-icons/bs';
 import { useHistory, useLocation } from 'react-router-dom';
 
 import { getTitle } from 'utils';
+import { useStore } from 'store';
 import img from 'assets/code.jpg';
 import { addFavorites } from 'store/actions';
 
@@ -24,6 +25,8 @@ function Card ({
 }) {
   const history = useHistory();
   const { pathname } = useLocation();
+
+  const { state, actions: { setFavorites, removeFavorites } } = useStore();
 
   return (
     <div 
@@ -50,16 +53,18 @@ function Card ({
                 fill="red"
                 className="favorite"
                 onClick={() => {
+                  removeFavorites(id)
                   //remove dispatch here
-                  addFavorites({ id, isFavorites: false });
+                  // addFavorites({ id, isFavorites: false });
                 }}
               />
               : <BsHeart
                 fill="white"
                 className="favorite"
                 onClick={() => {
+                  setFavorites(id)
                   //remove dispatch here
-                  addFavorites({ id, isFavorites: true });
+                  // addFavorites({ id, isFavorites: true });
                 }}
               />
             : null

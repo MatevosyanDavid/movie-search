@@ -1,10 +1,9 @@
 import { appKey } from 'configs';
 import RequestStore from './requestStore';
 import errorHandler from './errorHandler';
-import { getMovies, getMoviesVideo } from 'constants/api';
+import { getMoviesVideo } from 'constants/api';
 
-
-const makeUnique = (url, method, data) => `${url}-${method}-${data}`;
+const makeUnique = (url, method) => `${url}-${method}`;
 
 class Fetch {
   static async get(url) {
@@ -12,7 +11,7 @@ class Fetch {
   }
 
   static async getVideos(data) {
-    const promises = data.map(({ id }) => Fetch.request(getMoviesVideo(id)));
+    const promises = data.map(({ id }) => Fetch.request(getMoviesVideo(id), 'GET'));
     await Promise.all(promises)
       .then(videos => {
         videos.forEach(({ results }, i) => {
