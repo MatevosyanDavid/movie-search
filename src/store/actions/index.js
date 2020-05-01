@@ -8,11 +8,12 @@ import {
   getPersistFavoritesData,
 } from 'utils';
 
-const getData = async ({ state }) => {
-  const { results } = await Fetch.get(getMovies(1));
+const getData = async ({ state }, page) => {
+  const { results, total_pages } = await Fetch.get(getMovies(page));
   const data = results.map(item => transformData(item));
   const mergeData = await Fetch.getMergeData(data);
 
+  state.totalTages = total_pages;
   state.data = getPersistFavoritesData(mergeData);
   state.favorites = state.data.filter(({ isFavorites }) => isFavorites === true);
 };
