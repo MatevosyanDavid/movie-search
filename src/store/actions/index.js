@@ -2,17 +2,29 @@ import Fetch from 'utils/fetch';
 import { getMovies } from 'constants/api';
 import {
   loadState,
-  getAllData,
   getItemByKey,
   transformData,
   getIndexByKey,
-  persistFavorites,
+  saveFavorites,
 } from 'utils';
+
+const getPersistFavoritesData = data => {
+  const persistKeys = loadState('favorites');
+  return data.map(item => {
+    if (persistKeys && persistKeys.includes(item.id)) {
+      item.isFavorites = true;
+    }
+    return item;
+  })
+}
 
 const getData = async ({ state }) => {
   const { results } = await Fetch.get(getMovies(1));
   const data = results.map(item => transformData(item));
-  state.data = await Fetch.getVideos(data);
+  const fetchData = await Fetch.getVideos(data);
+  state.data = getPersistFavoritesData(fetchData);
+  const x = getPersistFavoritesData(state.data);
+  console.log(x)
 };
 
 const setFavorites = ({ state }, id) => {
@@ -22,7 +34,7 @@ const setFavorites = ({ state }, id) => {
   const newFavorite = getItemByKey(state.data, 'id', id);
   newFavorite.isFavorites = true;
   state.favorites = [...state.favorites, newFavorite];
-  persistFavorites(state.favorites)
+  saveFavorites(state.favorites)
 }
 
 const removeFavorites = ({ state }, id) => {
@@ -33,7 +45,7 @@ const removeFavorites = ({ state }, id) => {
   newFavorite.splice(favoriteIndex, 1);
   state.data[dataIndex].isFavorites = false;
   state.favorites = newFavorite;
-  persistFavorites(state.favorites)
+  saveFavorites(state.favorites)
 }
 
 const logout = ({ state }) => {
@@ -56,5 +68,5 @@ export const fetchMovie = (services) => (dispatch) =>
       }, [])
       .sort((a, b) => b.popularity - a.popularity);
     })
-    .then(data => getAllData(data, dispatch, moviesLoaded))
-    .catch(err => dispatch(moviesError(err)));
+    // .then(data => getAllData(data, dispatch, moviesLoaded))
+    // .catch(err => dispatch(moviesError(err)));
