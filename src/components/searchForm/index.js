@@ -1,20 +1,23 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
+import { useStore } from 'store';
+
 function SearchForm() {
   const [value, setValue] = useState('');
+  const { actions: { getSearchMovies } } = useStore();
+  const history = useHistory();
 
-  const history = useHistory()
 
   const handleChange = ({ target: { value } }) => setValue(value);
   
   const handleSubmit = event => {
     event.preventDefault();
     if(value.trim().length === 0) {
-      return
+      return;
     }
-    
-    history.push('/search')
+    getSearchMovies(value);
+    history.push('/search');
   }
 
   return (

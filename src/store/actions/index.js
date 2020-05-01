@@ -1,5 +1,5 @@
 import Fetch from 'utils/fetch';
-import { getMovies } from 'constants/api';
+import { getMovies, getMoviesByName } from 'constants/api';
 import {
   getItemByKey,
   transformData,
@@ -11,9 +11,9 @@ import {
 const getData = async ({ state }) => {
   const { results } = await Fetch.get(getMovies(1));
   const data = results.map(item => transformData(item));
-  const fetchData = await Fetch.getVideos(data);
+  const mergeData = await Fetch.getMergeData(data);
 
-  state.data = getPersistFavoritesData(fetchData);
+  state.data = getPersistFavoritesData(mergeData);
   state.favorites = state.data.filter(({ isFavorites }) => isFavorites === true);
 };
 
@@ -38,6 +38,14 @@ const removeFavorites = ({ state }, id) => {
   saveFavorites(state.favorites)
 }
 
+const getSearchMovies = async ({ state }, name) => {
+  const { results } = await Fetch.get(getMoviesByName(name));
+  const data = results.map(item => transformData(item));
+  const mergeData = await Fetch.getMergeData(data);
+  
+  state.searchResult = mergeData
+}
+
 const logout = ({ state }) => {
   state.logout = false;
 };
@@ -47,4 +55,5 @@ export default {
   getData,
   setFavorites,
   removeFavorites,
+  getSearchMovies,
 };

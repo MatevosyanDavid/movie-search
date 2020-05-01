@@ -17,6 +17,7 @@ function Card ({
   backdrop,
   overview,
   voteCount,
+  searchCard,
   popularity,
   isFavorites,
   releaseDate,
@@ -46,7 +47,7 @@ function Card ({
         <p>Popularity: {popularity}</p>
         <p>Release: {releaseDate}</p>
         {
-          !isMovieInfo
+          !isMovieInfo && !searchCard
             ? isFavorites
               ? <BsHeartFill
                 fill="red"
