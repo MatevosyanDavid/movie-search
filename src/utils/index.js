@@ -1,5 +1,4 @@
 import noop from './noop';
-import getAllData from './getAllData.js';
 import withSuspense from './withSuspense';
 import transformData from './transformData';
 import { loadState, saveState } from './persist';
@@ -16,7 +15,6 @@ export {
   getTitle,
   loadState,
   saveState,
-  getAllData,
   withSuspense,
   getItemByKey,
   transformData,

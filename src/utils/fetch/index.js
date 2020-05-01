@@ -3,7 +3,7 @@ import RequestStore from './requestStore';
 import errorHandler from './errorHandler';
 import { getMoviesVideo } from 'constants/api';
 
-const makeUnique = (url, method) => `${url}-${method}`;
+const makeUnique = (url, method, appKey) => `${url}-${method}-${appKey}`;
 
 class Fetch {
   static async get(url) {
@@ -33,7 +33,7 @@ class Fetch {
   }
 
   static async cachableRequest(url, method) {
-    const hash = makeUnique(url, method);
+    const hash = makeUnique(url, method, appKey);
     const request = RequestStore.has(hash) ? RequestStore.get(hash) : fetch(url);
 
     RequestStore.set(hash, request);

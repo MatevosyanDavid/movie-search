@@ -4,8 +4,9 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { useStore } from 'store';
 import { useMount } from 'utils/hooks';
 
-import Main from 'pages/main';
-import Favorites from 'pages/favorites';
+import Main from './main';
+import About from './about';
+import Favorites from './favorites';
 import MovieInfo from 'components/movieInfo';
 
 function Body() {
@@ -33,6 +34,9 @@ function Body() {
           </Route>
           <Route exact path="/search">
             <Main data={searchResult} />
+          </Route>
+          <Route exact path="/about">
+            <About />
           </Route>
           <Route
             exact

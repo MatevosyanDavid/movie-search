@@ -11,9 +11,6 @@ const getMoviesVideo = (id) => `${baseUrl}/movie/${id}/videos?api_key=${segmentK
 const getMovies = page => `${baseUrl}/discover/movie?api_key=${segmentKey}${cetrificate}${page}`;
 const getMoviesByName = name => `${baseUrl}/search/movie?api_key=${segmentKey}&query=${name}&page=1`;
 
-// console.log(getMovies(1), '>>>>>>');
-// console.log(getMoviesById(495764), '>>>>>>');
-// console.log(getMoviesVideo(495764), '>>>>>>');
 // console.log(getMoviesByName('spider'), '>>>>>>');
 
 export {
