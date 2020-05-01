@@ -1,24 +1,22 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import Card from 'components/cards';
 import Pagination from 'components/pagination';
 
+import { useStore } from 'store';
+
 import './index.css';
 
-function Main({ data, getRequest, totalPages }) {
+function Main({ data }) {
   const [currentPage, setCurrentPage] = useState(0);
-
+  const { state: { totalPages }, actions: { getData } } = useStore();
   const location = useLocation().pathname.includes('search');
-
-  useEffect(() => {
-    return () => localStorage.removeItem('formValue');
-  }, [])
 
   const handlePageClick = useCallback(({ selected }) => {
     setCurrentPage(selected);
-    getRequest(selected)
-  }, [currentPage]);
+    getData(selected + 1);
+  }, [getData]);
 
   return (
     <div className="main-blok">
@@ -33,11 +31,13 @@ function Main({ data, getRequest, totalPages }) {
           ))
         }
       </main>
-      <Pagination
-        pageCount={totalPages}
-        currentPage={currentPage}
-        handlePageClick={handlePageClick}
-      />
+      { !location &&
+        <Pagination
+          pageCount={totalPages}
+          currentPage={currentPage}
+          handlePageClick={handlePageClick}
+        />
+      }
     </div>
   )
 }

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { useStore } from 'store';
-import { saveState } from 'utils';
 
 function SearchForm() {
   const [value, setValue] = useState('');
@@ -18,7 +17,7 @@ function SearchForm() {
       return;
     }
     getSearchMovies({ value, id: 1 });
-    saveState('formValue', value);
+    setValue('');
     history.push('/search');
   }
 

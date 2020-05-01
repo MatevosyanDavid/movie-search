@@ -3,7 +3,6 @@ const initialState = {
   logout: null,
   favorites: [],
   totalPages: 0,
-  searchValue: '',
   searchResult: [],
   searchTotalPages: 0,
 };
