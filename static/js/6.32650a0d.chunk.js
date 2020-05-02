@@ -1,0 +1,2 @@
+(this.webpackJsonpmovies=this.webpackJsonpmovies||[]).push([[6],{67:function(e,a,t){"use strict";t.r(a);var n=t(0),s=t.n(n),i=t(10),r=t(56);a.default=function(){var e=Object(i.e)("favorites");return s.a.createElement("main",{className:"favorites-page"},e&&e.map((function(e){return s.a.createElement(r.a,Object.assign({key:e.id},e))})))}}}]);
+//# sourceMappingURL=6.32650a0d.chunk.js.map

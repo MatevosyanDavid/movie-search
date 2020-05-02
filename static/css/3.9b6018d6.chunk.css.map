@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.css"],"names":[],"mappings":"AAAA,WACE,cACF,CAFA,KAGE,eAEF,CAEA,gBANE,YAAa,CACb,cAAe,CAEf,4BAOF","file":"3.9b6018d6.chunk.css","sourcesContent":["main {\n  display: flex;\n  flex-wrap: wrap;\n  margin-top: 60px;\n  justify-content: space-around;\n}\n\n.main-blok {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-around;\n}\n"]}

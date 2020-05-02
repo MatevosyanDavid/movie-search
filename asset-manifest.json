@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/movie/static/css/main.7ef3687e.chunk.css",
+    "main.js": "/movie/static/js/main.3377f178.chunk.js",
+    "main.js.map": "/movie/static/js/main.3377f178.chunk.js.map",
+    "runtime-main.js": "/movie/static/js/runtime-main.06990f02.js",
+    "runtime-main.js.map": "/movie/static/js/runtime-main.06990f02.js.map",
+    "static/js/2.4b05806f.chunk.js": "/movie/static/js/2.4b05806f.chunk.js",
+    "static/js/2.4b05806f.chunk.js.map": "/movie/static/js/2.4b05806f.chunk.js.map",
+    "static/css/3.9b6018d6.chunk.css": "/movie/static/css/3.9b6018d6.chunk.css",
+    "static/js/3.968bb95b.chunk.js": "/movie/static/js/3.968bb95b.chunk.js",
+    "static/js/3.968bb95b.chunk.js.map": "/movie/static/js/3.968bb95b.chunk.js.map",
+    "static/css/4.053ea739.chunk.css": "/movie/static/css/4.053ea739.chunk.css",
+    "static/js/4.bcad30c2.chunk.js": "/movie/static/js/4.bcad30c2.chunk.js",
+    "static/js/4.bcad30c2.chunk.js.map": "/movie/static/js/4.bcad30c2.chunk.js.map",
+    "static/js/5.be3d1e7d.chunk.js": "/movie/static/js/5.be3d1e7d.chunk.js",
+    "static/js/5.be3d1e7d.chunk.js.map": "/movie/static/js/5.be3d1e7d.chunk.js.map",
+    "static/js/6.32650a0d.chunk.js": "/movie/static/js/6.32650a0d.chunk.js",
+    "static/js/6.32650a0d.chunk.js.map": "/movie/static/js/6.32650a0d.chunk.js.map",
+    "index.html": "/movie/index.html",
+    "precache-manifest.3fd2eec1b9ae9c74a59170aa060439e5.js": "/movie/precache-manifest.3fd2eec1b9ae9c74a59170aa060439e5.js",
+    "service-worker.js": "/movie/service-worker.js",
+    "static/css/3.9b6018d6.chunk.css.map": "/movie/static/css/3.9b6018d6.chunk.css.map",
+    "static/css/4.053ea739.chunk.css.map": "/movie/static/css/4.053ea739.chunk.css.map",
+    "static/css/main.7ef3687e.chunk.css.map": "/movie/static/css/main.7ef3687e.chunk.css.map",
+    "static/js/2.4b05806f.chunk.js.LICENSE.txt": "/movie/static/js/2.4b05806f.chunk.js.LICENSE.txt",
+    "static/media/code.jpg": "/movie/static/media/code.192f4687.jpg",
+    "static/media/poster.jpg": "/movie/static/media/poster.4a2bbc08.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.06990f02.js",
+    "static/js/2.4b05806f.chunk.js",
+    "static/css/main.7ef3687e.chunk.css",
+    "static/js/main.3377f178.chunk.js"
+  ]
+}

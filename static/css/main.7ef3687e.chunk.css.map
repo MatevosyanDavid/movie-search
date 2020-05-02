@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.css"],"names":[],"mappings":"AAAA,KACE,gBAAiB,CACjB,0BAA2B,CAC3B,kBAAyB,CACzB,kDACF","file":"main.7ef3687e.chunk.css","sourcesContent":["body {\n  min-height: 100vh;\n  overscroll-behavior-y: none;\n  background: rgb(14,10,89);\n  background: linear-gradient(132deg, rgba(14,10,89,1) 0%, rgba(6,18,30,1) 100%);\n}\n"]}
