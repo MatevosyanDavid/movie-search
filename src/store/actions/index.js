@@ -34,10 +34,11 @@ const removeFavorites = ({ state }, id) => {
   const dataIndex = getIndexByKey(state.data, 'id', id);
   const favoriteIndex = getIndexByKey(state.favorites, 'id', id);
 
-  newFavorite.splice(favoriteIndex, 1);
   if(state.data[dataIndex]) {
     state.data[dataIndex].isFavorites = false;
   }
+  
+  newFavorite.splice(favoriteIndex, 1);
   state.favorites = newFavorite;
   saveFavorites(state.favorites);
 }
