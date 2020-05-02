@@ -19,7 +19,7 @@ function Main({ data }) {
   const handlePageClick = useCallback(({ selected }) => {
     setCurrentPage(selected);
     getData(selected + 1);
-    saveState('pos', selected + 1);
+    saveState('pos', selected);
   }, [getData]);
 
   return (

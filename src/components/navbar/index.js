@@ -22,7 +22,6 @@ function Navbar() {
           <ul className="navbar-nav mr-auto">
             <Link to="/movies" label="Movies" />
             <Link to="/favorites" label="Favorites" />
-            <Link to="/about" label="About" />
           </ul>
           <SearchForm />
         </div>
