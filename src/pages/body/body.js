@@ -24,7 +24,7 @@ function Body() {
   } = useStore();
 
   useMount(() => {
-    getData(pos || 1);
+    getData((pos && pos + 1) || 1);
   });
 
   return (
