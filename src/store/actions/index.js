@@ -1,6 +1,7 @@
 import Fetch from 'utils/fetch';
 import { getMovies, getMoviesByName } from 'constants/api';
 import {
+  loadState,
   getItemByKey,
   transformData,
   getIndexByKey,
@@ -10,12 +11,12 @@ import {
 
 const getData = async ({ state }, page) => {
   const { results, total_pages } = await Fetch.get(getMovies(page));
-  const data = results.map(item => transformData(item));
-  const mergeData = await Fetch.getMergeData(data);
+  const mergeData = await Fetch.getMergeData(results);
+  const data = mergeData.map(item => transformData(item));
 
   state.totalPages = total_pages;
-  state.data = getPersistFavoritesData(mergeData);
-  state.favorites = state.data.filter(({ isFavorites }) => isFavorites === true);
+  state.data = getPersistFavoritesData(data);
+  state.favorites = loadState('favorites');
 };
 
 const setFavorites = ({ state }, id) => {
@@ -33,8 +34,11 @@ const removeFavorites = ({ state }, id) => {
   const dataIndex = getIndexByKey(state.data, 'id', id);
   const favoriteIndex = getIndexByKey(state.favorites, 'id', id);
 
+  if(state.data[dataIndex]) {
+    state.data[dataIndex].isFavorites = false;
+  }
+  
   newFavorite.splice(favoriteIndex, 1);
-  state.data[dataIndex].isFavorites = false;
   state.favorites = newFavorite;
   saveFavorites(state.favorites);
 }
