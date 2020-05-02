@@ -16,7 +16,7 @@ const getData = async ({ state }, page) => {
 
   state.totalPages = total_pages;
   state.data = getPersistFavoritesData(data);
-  state.favorites = loadState('favorites');
+  state.favorites = loadState('favorites') || [];
 };
 
 const setFavorites = ({ state }, id) => {
