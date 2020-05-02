@@ -21,6 +21,7 @@ function Main({ data }) {
     setCurrentPage(selected);
     getData(selected + 1);
     saveState('pos', selected);
+    window.scrollTo(0, 0)
   }, [getData]);
 
   return (
