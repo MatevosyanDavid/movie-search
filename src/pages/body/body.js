@@ -2,12 +2,15 @@ import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 import { useStore } from 'store';
+import { loadState } from 'utils';
 import { useMount } from 'utils/hooks';
 
 import Main from './main';
 import About from './about';
 import Favorites from './favorites';
 import MovieInfo from 'components/movieInfo';
+
+const pos = loadState('pos');
 
 function Body() {
   const {
@@ -22,7 +25,7 @@ function Body() {
   } = useStore();
 
   useMount(() => {
-    getData(1);
+    getData(pos || 1);
   });
 
   return (
