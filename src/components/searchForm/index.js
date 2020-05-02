@@ -8,7 +8,6 @@ function SearchForm() {
   const { actions: { getSearchMovies } } = useStore();
   const history = useHistory();
 
-
   const handleChange = ({ target: { value } }) => setValue(value);
   
   const handleSubmit = event => {

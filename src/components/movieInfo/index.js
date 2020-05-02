@@ -27,7 +27,7 @@ const MovieInfo = props => (
                 className="videos-item"
               />
             </div>
-          )
+          );
         })
       }
     </div>

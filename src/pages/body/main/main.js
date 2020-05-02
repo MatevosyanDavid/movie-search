@@ -14,8 +14,8 @@ function Main({ data }) {
   const pos = loadState('pos');
 
   const [currentPage, setCurrentPage] = useState(pos || 0);
-  const { state: { totalPages }, actions: { getData } } = useStore();
   const location = useLocation().pathname.includes('search');
+  const { state: { totalPages }, actions: { getData } } = useStore();
 
   const handlePageClick = useCallback(({ selected }) => {
     setCurrentPage(selected);
