@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
 import Body from 'pages/body';
+import Footer from 'pages/footer';
 import Header from 'pages/header';
 
 const Layout = () => {
@@ -9,6 +10,7 @@ const Layout = () => {
     <BrowserRouter>
       <Header />
       <Body />
+      <Footer />
     </BrowserRouter>
   );
 }

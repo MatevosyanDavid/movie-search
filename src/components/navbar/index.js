@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
+import { NavLink } from 'react-router-dom'
 
 import Link from 'components/link'
 import SearchForm from 'components/searchForm';
@@ -11,9 +12,9 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
       <div className="container">
-        <span className="navbar-brand">
+        <NavLink to="/movies" className="navbar-brand">
           Search Movies
-        </span>
+        </NavLink>
         <button className="navbar-toggler" onClick={showMenuHandler}>
           <span className="navbar-toggler-icon"></span>
         </button>
