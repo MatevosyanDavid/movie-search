@@ -1,4 +1,5 @@
 import noop from './noop';
+import isMobile from './isMobile';
 import withSuspense from './withSuspense';
 import transformData from './transformData';
 import { loadState, saveState } from './persist';
@@ -13,6 +14,7 @@ import {
 export {
   noop,
   getTitle,
+  isMobile,
   loadState,
   saveState,
   withSuspense,

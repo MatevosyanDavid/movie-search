@@ -10,6 +10,7 @@ import {
 } from 'utils';
 
 const getData = async ({ state }, page) => {
+  state.isLoaded = true;
   const { results, total_pages } = await Fetch.get(getMovies(page));
   const mergeData = await Fetch.getMergeData(results);
   const data = mergeData.map(item => transformData(item));
@@ -17,6 +18,7 @@ const getData = async ({ state }, page) => {
   state.totalPages = total_pages;
   state.data = getPersistFavoritesData(data);
   state.favorites = loadState('favorites') || [];
+  state.isLoaded = false;
 };
 
 const setFavorites = ({ state }, id) => {
@@ -44,12 +46,14 @@ const removeFavorites = ({ state }, id) => {
 }
 
 const getSearchMovies = async ({ state }, { value, id }) => {
+  state.isLoaded = true;
   const { results, total_pages } = await Fetch.get(getMoviesByName(value, id));
   const data = results.map(item => transformData(item));
   const mergeData = await Fetch.getMergeData(data);
   
   state.searchResult = mergeData;
   state.searchTotalPages = total_pages;
+  state.isLoaded = false;
 }
 
 const logout = ({ state }) => {

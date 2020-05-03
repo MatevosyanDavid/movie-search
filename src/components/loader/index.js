@@ -1,8 +1,14 @@
 import React from 'react';
+import HashLoader from 'react-spinners/HashLoader';
+
+import './index.css';
 
 const Loader = () => (
-  <div>
-    <h5>Loading</h5>
+  <div className="center">
+    <HashLoader
+      size={100}
+      color={"#ffffff"}
+    />
   </div>
 );
 

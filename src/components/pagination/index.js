@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactPaginate from 'react-paginate';
 
+import { isMobile } from 'utils';
+
 import './index.css';
 
 const Pagination = ({ currentPage, handlePageClick, pageCount }) => {
@@ -11,9 +13,7 @@ const Pagination = ({ currentPage, handlePageClick, pageCount }) => {
       breakLabel={'...'}
       previousLabel={'Prev'}
       pageCount={pageCount}
-      pageRangeDisplayed={5}
       forcePage={currentPage}
-      marginPagesDisplayed={2}
       nextClassName="page-item"
       pageClassName="page-item"
       activeClassName={'active'}
@@ -25,6 +25,8 @@ const Pagination = ({ currentPage, handlePageClick, pageCount }) => {
       onPageChange={handlePageClick}
       previousLinkClassName="page-link"
       containerClassName={'pagination'}
+      pageRangeDisplayed={isMobile() ? 1 : 5}
+      marginPagesDisplayed={isMobile() ? 1 : 2}
     />
   );
 };

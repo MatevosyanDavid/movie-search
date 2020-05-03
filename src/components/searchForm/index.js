@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 
 import { useStore } from 'store';
 
-function SearchForm() {
+function SearchForm({ setIsVisivle }) {
   const [value, setValue] = useState('');
   const { actions: { getSearchMovies } } = useStore();
   const history = useHistory();
@@ -17,6 +17,7 @@ function SearchForm() {
     }
     getSearchMovies({ value, id: 1 });
     setValue('');
+    setIsVisivle(false)
     history.push('/search');
   }
 

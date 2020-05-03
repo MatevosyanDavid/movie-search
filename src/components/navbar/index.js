@@ -20,10 +20,18 @@ function Navbar() {
 
         <div className={classNames('navbar-collapse', { collapse: !isVisible })}>
           <ul className="navbar-nav mr-auto">
-            <Link to="/movies" label="Movies" />
-            <Link to="/favorites" label="Favorites" />
+            <Link
+              to="/movies"
+              label="Movies"
+              showMenuHandler={showMenuHandler}
+            />
+            <Link
+              to="/favorites"
+              label="Favorites"
+              showMenuHandler={showMenuHandler}
+            />
           </ul>
-          <SearchForm />
+          <SearchForm setIsVisivle={setIsVisivle} />
         </div>
       </div>
     </nav>
