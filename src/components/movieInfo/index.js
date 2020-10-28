@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Card from 'components/cards';
 import { baseUrlVideo } from 'configs';
 

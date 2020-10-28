@@ -1,4 +1,3 @@
-import React from 'react';
 import { Provider } from 'overmind-react'
 
 import Layout from 'layout';

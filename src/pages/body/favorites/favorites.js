@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { loadState } from 'utils';
 import Card from 'components/cards';
 import NoData from 'components/noData';

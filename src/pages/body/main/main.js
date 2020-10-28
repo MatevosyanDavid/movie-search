@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { useStore } from 'store';

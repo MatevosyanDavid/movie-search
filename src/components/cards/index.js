@@ -1,4 +1,3 @@
-import React from 'react';
 import classNames from 'classnames';
 import LazyImage from 'lazy-image-reactjs';
 import { BsHeart, BsHeartFill } from 'react-icons/bs';
