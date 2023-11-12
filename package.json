@@ -7,7 +7,7 @@
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
-    "axios": "^0.21.1",
+    "axios": "^1.6.0",
     "classnames": "^2.2.6",
     "lazy-image-reactjs": "^1.2.0",
     "overmind-react": "^28.0.0",
